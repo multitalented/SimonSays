@@ -32,6 +32,7 @@ function checkAnswer(currentLevel) {
       console.log("wrong")
       gameOver = true;
       $("h1#level-title").text("GAME OVER!");
+      setTimeout(resetGame, 5000);
       // resetGame();
     }
   if (gameOver == false && currentLevel == gamePattern.length) {
@@ -46,22 +47,25 @@ function resetGame() {
   level = 0;
   gameStart = true;
   gameOver = false;
-  levelCheck = 0;
+  // levelCheck = 0;
   $("h1#level-title").text("Level 0");
 }
 
 function startGame() {
   if (gameStart == false) {
     resetGame();
+    console.log("Game over: " + gameOver);
     nextSequence();
-    gameStart = true;
+    // gameStart = true;
   }
-  if (gameOver = true) {
+  if (gameOver == true) {
+    // $("h1#level-title").text("GAME OVER!");
+    // resetGame();
+    // setTimeout(resetGame, 5000);
     // $(document).keydown(function(event) {
     //   console.log(event.key);
     //   $(".title").text(textString);
     //   i++;
-    })
   }
 }
 
@@ -73,6 +77,9 @@ function nextSequence() {
   $("h1#level-title").text("Level " + level);
   gamePattern[level] = randomChosenColor;
   console.log(level);
+  console.log(randomChosenColor);
+  console.log(gamePattern[level]);
+  console.log("Game over: " + gameOver);
 }
 
 function playSound(colorName) {
