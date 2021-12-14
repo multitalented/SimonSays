@@ -29,6 +29,8 @@ function checkAnswer(currentLevel) {
     if (userClickedPattern[currentLevel-1] == gamePattern[currentLevel-1]) {
       console.log("success");
     } else {
+      var wrongSound = new Audio("sounds/wrong.mp3");
+      wrongSound.play();
       console.log("wrong")
       gameOver = true;
       $("h1#level-title").text("GAME OVER!");
